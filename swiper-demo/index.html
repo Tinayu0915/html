@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/swiper-3.4.2.min.css">
+</head>
+<body>
+    <!--html代码-->
+    <div class="content js-content">
+        <div class="js-img"><img src="./images/1.jpg" data-time="1496412828"></div>
+        <div class="js-img"><img src="./images/2.jpg" data-time="1496412829"></div>
+        <!-- 这里可以动态添加图片 -->
+    </div>
+    <div class="fixed img-preview js-img-preview">
+        <!-- Swiper -->
+        <div class="swiper-container w-100 h-100">
+            <div class="swiper-wrapper js-swiper-wrapper">
+                <!--<div class="swiper-slide">slide</div>            -->
+            </div>
+            <!-- Add Pagination -->
+            <div class="swiper-pagination swiper-pagination-white"></div>
+            <!-- Add Arrows -->
+            <div class="swiper-button-next swiper-button-white js-swiper-button-white"></div>
+            <div class="swiper-button-prev swiper-button-white js-swiper-button-white"></div>
+        </div>
+    </div>
+    <!--end img-preview-->
+    <script src="./js/jquery-1.10.1.min.js"></script>
+    <script src="./js/swiper-3.4.2.min.js"></script>
+    <script>
+        //js代码
+        var index = 0, clickNum = 0, timeOut, mySwiper;
+        $('.js-content').on('click', 'img', function () {
+            var html = '',
+                that = this;
+
+            //获取当前点击图片的data-time，用于得出index值
+            var timeVal = $(that).attr('data-time');
+            $('.js-content .js-img').each(function (i, item) {
+                console.log($(this).html());
+                //循环content内容，动态获取所有图片
+                html += '<div class="swiper-slide"><div class="swiper-zoom-container">' + $(this).html() + '</div></div>';
+
+                if (timeVal == $(this).attr('data-time')) {
+                    index = i;
+                    console.log('图片预览', timeVal, i);
+                }
+            });
+
+            //把html插入到swiper-wrapper
+            $('.js-swiper-wrapper').html(html);
+            $('.js-img-preview').css({ 'height': '100%', 'width': '100%' });
+
+            //创建Swiper对象          
+            mySwiper = new Swiper('.swiper-container', {//初始化swiper
+                initialSlide: index,
+                pagination: '.swiper-pagination',
+                paginationClickable: '.swiper-pagination',
+                nextButton: '.swiper-button-next',
+                prevButton: '.swiper-button-prev',
+                spaceBetween: 30,
+                zoom: true,//开启缩放功能
+                observer: true,//修改swiper自己或子元素时，自动初始化swiper
+                observeParents: true,//修改swiper的父元素时，自动初始化swiper
+            });
+        });
+
+        //模拟双击单击事件，单击关闭图片
+        $('.js-swiper-wrapper').on('click', 'img', function (e) {//关闭图片预览 
+            e.preventDefault();
+            e.stopPropagation();
+            clickNum++;
+            if (clickNum == 2) {
+                console.log('双击');
+                clickNum = 0;
+                clearTimeout(timeOut);
+            } else {
+                console.log('单击');
+                timeOut = setTimeout(function () {
+                    $('.js-swiper-wrapper').html('');
+                    $('.js-img-preview').css({ 'height': '0', 'width': '0' });
+                    mySwiper.destroy(true, true);//销毁Swiper对象，动态创建必须每次都销毁 
+                    clickNum = 0;
+                }, 300);
+            }
+            console.log(clickNum);
+        });
+        $('.js-swiper-wrapper').on('click', function () {//关闭图片预览                
+            $('.js-swiper-wrapper').html('');
+            $('.js-img-preview').css({ 'height': '0', 'width': '0' });
+            mySwiper.destroy(true, true);//销毁Swiper对象，动态创建必须每次都销毁 
+        });
+        $('.js-swiper-button-white').on('click', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+        })
+    </script>
+</body>
+</html>
