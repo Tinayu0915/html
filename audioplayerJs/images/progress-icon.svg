@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="10px" height="10px" viewBox="0 0 10 10" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 45.1 (43504) - http://www.bohemiancoding.com/sketch -->
+    <title>icon_播放位置</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="终稿" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="直播界面-语音样式" transform="translate(-117.000000, -389.000000)" fill="#00D2C3">
+            <g id="Group-7" transform="translate(14.000000, 348.000000)">
+                <g id="Group-5-Copy-3" transform="translate(0.000000, 0.000000)">
+                    <g id="Group-9-Copy" transform="translate(64.000000, 26.000000)">
+                        <g id="Group-2">
+                            <g id="icon_播放位置" transform="translate(39.000000, 15.000000)">
+                                <rect id="Rectangle" opacity="0.200634058" x="0" y="1.13686838e-13" width="10" height="10" rx="5"></rect>
+                                <rect id="Rectangle" x="2" y="2" width="6" height="6" rx="3"></rect>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
