@@ -19,6 +19,7 @@
 
 <body>
     <div class="demo">
+        请使用手机模式查看
         <audio preload="auto" controls>           
             Your browser does not support the audio element.您的浏览器不支持 audio 标签。
         </audio>
@@ -35,7 +36,8 @@
     
     <script src="./js/audioplay.js"></script>
     <script>
-        audioPlay('.audioplay-box');
+        var audioPlay = new AudioPlay('.audioplay-box');
+        audioPlay.init();
     </script>
 </body>
 </html>
