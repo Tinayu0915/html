@@ -4,3 +4,4 @@
 4、cropperjs-demo-[h5利用cropper.js实现图片裁剪demo](https://awei922.github.io/html/cropperjs-demo/index.html)            
 5、swiper-demo-[利用swiper动态创建图片预览效果（兼容移动端）](https://awei922.github.io/html/swiper-demo/index.html)     
 6、audioplayerJs-[webapp音频播放插件audioplay.js](https://awei922.github.io/html/audioplayerJs/index.html) 
+7、marquee-js-[js实现marquee文字无限滚动](https://awei922.github.io/html/marquee-js/index.html) 

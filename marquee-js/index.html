@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>js实现marquee文字无限滚动</title>
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.slim.js"></script>
+</head>
+<body>
+    <h2 style="text-align:center;margin:50px auto 0;">js实现marquee文字无限滚动</h2>
+	
+	<h4 style="text-align:center;margin:50px auto 0;">marquee标签实现：</h4>
+	<marquee direction="up" style="display: block;width:200px;height:100px;overflow-y:scroll;margin:50px auto;">阿伟LOG-1
+	</marquee>
+	
+	<h4 style="text-align:center;margin:50px auto 0;">js模拟marquee实现：</h4>
+    <div class="list" style="width:200px;height:100px;overflow-y:scroll;margin:50px auto;">
+        <div class="list1">
+            阿伟LOG-1<br>
+            阿伟LOG-2<br>
+            阿伟LOG-3<br>
+            阿伟LOG-4<br>
+            阿伟LOG-5<br>            
+        </div>  
+        <div class="list2"></div>
+   </div>
+   <script>
+        var t=$(".list")[0],t1=$(".list1")[0],t2=$(".list2")[0],timer,timeout;
+        t2.innerHTML=t1.innerHTML;
+        function mar(){
+            if(t.scrollTop+t.offsetHeight>=t.scrollHeight){
+                t.scrollTop-=t1.offsetHeight;
+            }else{
+                t.scrollTop++;
+            }    
+        }
+        timer=setInterval(mar,50);
+        $('.list').off('touchstart mouseover').on('touchstart mouseover',function(){
+            clearInterval(timer);
+        }).off('touchend mouseout').on('touchend mouseout',function(){
+            clearTimeout(timeout);
+            timeout = setTimeout(function() {
+                timer=setInterval(mar,50);
+            }, 1000);
+        });
+   </script>
+</body>
+</html>
