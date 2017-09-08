@@ -7,7 +7,7 @@ Welcome to
 ## 个人网站   
 [http://aweig.com](http://aweig.com)   
 
-####       
+---       
 1、wanliYear-[2017年春运抢票时间](https://awei922.github.io/html/wanliYear/index.html)   
 2、NEC-[NEC : 更好的CSS样式解决方案（网易）](http://nec.netease.com/) 【GitHub:<https://github.com/awei922/html/tree/master/NEC>】  
 3、homePage-[个人主页demo](https://awei922.github.io/html/homePage/index.html)       
