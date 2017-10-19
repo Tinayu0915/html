@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>跨域demo</title>
+    <script src="http://apps.bdimg.com/libs/jquery/1.9.1/jquery.min.js"></script>
+</head>
+<body>
+    <h2 style="text-align:center;margin:50px auto 0;">跨域demo</h2>
+
+    <div class="list" style="width:400px;height:100px;margin:50px auto;">
+        <h4 style="margin:50px 0 0;">当前url：</h4>
+        <div id="cururl"> </div>
+        <h4 style="margin:10px 0 0;">请求url：</h4>
+        <div>
+            <input type="text" id="requrl" style="width:100%;" value="http://b.test.com/cross-domain/server.php">
+        </div>
+        <h4 style="margin:10px 0 0;">请求内容：</h4>
+        <div>
+            <input type="text" id="content" style="width:100%;" value="11">
+        </div>
+        <div style="margin:10px 0 0;">
+            <input id="submit" type="button" value="请求">
+        </div>
+        <h4 style="margin:50px 0 0;">结果：</h4>
+        <div id="result">
+            
+        </div>        
+    </div>
+    <iframe name="iframe" id="iframe"  width="0" height="0" src="http://b.test.com/cross-domain/iframe.html"></iframe>
+    <script>
+        document.domain = 'test.com';
+        var user = 'parent';
+
+        $(function(){
+            $('iframe').load(function(){
+                var result = window.frames["iframe"].window.result;
+                $('#result').html(result);
+            })
+        })
+    </script>
+</body>
+</html>
